@@ -14,6 +14,6 @@ Arduino IDE Version: 2.3.7
 
 - None assigned yet
 
-## Bench Information
+# Bench Information
 
 - Bench ID not assigned
