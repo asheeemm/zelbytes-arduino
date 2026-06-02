@@ -6,7 +6,7 @@ Port: COM3
 
 Arduino IDE Version: 2.3.7
 
-## Sensors
+### Sensors
 
 - None assigned yet
 
