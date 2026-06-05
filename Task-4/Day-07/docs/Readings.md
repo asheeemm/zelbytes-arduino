@@ -6,7 +6,7 @@ Dark calibration:
 - Sensor covered completely by hand.
 - Raw:518  Voltage:2.53
 
-Normal Caliberation
+Normal Caliberation:
 -Sensor placed in normal room lighting
 -Raw:932  Voltage:4.56
 
