@@ -7,9 +7,10 @@ Dark calibration:
 - Raw:518  Voltage:2.53
 
 Normal Caliberation:
--Sensor placed in normal room lighting
--Raw:932  Voltage:4.56
+- Sensor placed in normal room lighting
+- Raw:932  Voltage:4.56
 
 Bright calibration:
 - Mobile phone flashlight held above the sensor.
 - Raw:1014  Voltage:4.96
+
