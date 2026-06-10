@@ -1,7 +1,8 @@
 ## Soil Moisture Calibration
 
-DRY_ADC = 850
-WET_ADC = 321
+AIR = 1023
+DRY = 750
+WET = 221
 
 Moisture percentage calculated using:
 
