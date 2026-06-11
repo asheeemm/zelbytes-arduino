@@ -24,7 +24,7 @@
 ## Soil Moisture Sensor
 | Parameter | Value |
 |-----------|-------|
-| Type | Capacitive v1.2 |
+| Type | Resistive Type |
 | Probe Depth | Halfway into soil |
 | Orientation | Vertical |
 
