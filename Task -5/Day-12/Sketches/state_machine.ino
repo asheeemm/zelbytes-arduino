@@ -6,6 +6,8 @@
 #define SOIL_PIN A0
 #define RELAY_PIN 8
 
+#define LED_PIN 13
+
 DHT dht(DHTPIN, DHTTYPE);
 
 enum State {
@@ -33,6 +35,9 @@ void setup() {
 
   // Valve closed initially
   digitalWrite(RELAY_PIN, LOW);
+
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
 
   dht.begin();
 
@@ -72,6 +77,7 @@ void loop() {
 
       // Valve Closed
       digitalWrite(RELAY_PIN, LOW);
+      digitalWrite(LED_PIN, LOW);
 
       if (soilValue < soilThreshold && dhtFailCount == 0) {
 
@@ -91,6 +97,7 @@ void loop() {
 
       // Valve Open
       digitalWrite(RELAY_PIN, HIGH);
+      digitalWrite(LED_PIN, HIGH);
 
       if (millis() - stateStartTime >= irrigationTime) {
 
@@ -110,6 +117,7 @@ void loop() {
 
       // Valve Closed
       digitalWrite(RELAY_PIN, LOW);
+      digitalWrite(LED_PIN, LOW);
 
       if (millis() - stateStartTime >= cooldownTime) {
 
@@ -125,6 +133,11 @@ void loop() {
 
       // Valve Closed
       digitalWrite(RELAY_PIN, LOW);
+
+      digitalWrite(LED_PIN, HIGH);
+      delay(250);
+      digitalWrite(LED_PIN, LOW);
+      delay(250);
 
       Serial.println("FAULT: DHT Sensor Failure");
       delay(2000);
