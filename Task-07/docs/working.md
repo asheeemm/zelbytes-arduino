@@ -1,0 +1,2 @@
+Working
+The Arduino initializes the DHT11, soil moisture sensor, and LDR during startup and prints the CSV header to the Serial Monitor. It continuously monitors the elapsed time using the millis() function. Once the defined logging interval is reached, it reads the temperature, humidity, soil moisture, and light values, then prints them as a comma-separated row. This process repeats every logging interval, creating a continuous CSV dataset that can be saved for later analysis
