@@ -9,6 +9,10 @@ Send telemetry data to the Zelbytes IoT Learning Lab using a Python script.
 - Python 3.14.6
 - requests library
 
+## Device ID
+
+Device ID used: `uno-bench-01`
+
 ## Installation
 
 ```bash
