@@ -5,7 +5,7 @@ This project is an automatic plant watering system using ESP8266. It reads soil 
 
 ---
 
-## ⚙️ Components
+##  Components
 - ESP8266 NodeMCU  
 - Soil Moisture Sensor  
 - Relay Module  
@@ -30,5 +30,5 @@ This project is an automatic plant watering system using ESP8266. It reads soil 
 
 ---
 
-## 🏷️ Version
+##  Version
 v1.0-capstone
