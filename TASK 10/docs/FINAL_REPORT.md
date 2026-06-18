@@ -1,9 +1,9 @@
-# 🌱 Automated Grow-Bench System  
+#  Automated Grow-Bench System  
 ### ESP8266-Based Smart Irrigation System (Capstone Project)
 
 ---
 
-## 📌 1. Objective
+##  1. Objective
 
 The objective of this project is to design and implement an IoT-based automated irrigation system using ESP8266 NodeMCU. The system monitors soil moisture and controls water flow using a solenoid valve through a relay module. It supports both automatic and manual operation modes.
 
@@ -23,14 +23,14 @@ The objective of this project is to design and implement an IoT-based automated 
 
 ---
 
-## 🔌 3. Wiring Overview
+##  3. Wiring Overview
 
 ### ESP8266 Connections
 
 - Soil Sensor AO → A0  
 - Relay IN → D1  
 - Push Button → D2 (INPUT_PULLUP)  
-- VCC → 3.3V / 5V (as required)  
+- VCC → 3.3V   
 - GND → Common Ground  
 
 ---
@@ -43,13 +43,7 @@ The objective of this project is to design and implement an IoT-based automated 
 
 ---
 
-## 🖼️ 4. Wiring Diagram
-
-![Wiring Diagram](docs/images/wiring.png)
-
----
-
-## ⚙️ 5. Calibration Methodology
+##  5. Calibration Methodology
 
 The soil moisture sensor was calibrated by observing analog values under different conditions:
 
@@ -68,7 +62,7 @@ This hysteresis prevents rapid switching of the relay.
 
 ---
 
-## 🧪 6. Test Results
+##  6. Test Results
 
 ### Functional Tests Performed:
 - Sensor reading verification
@@ -84,7 +78,7 @@ This hysteresis prevents rapid switching of the relay.
 
 ---
 
-## ⚠️ 7. Known Limitations
+##  7. Known Limitations
 
 - Soil moisture sensor is not highly accurate and varies with soil type
 - Sensor corrosion may occur over long-term usage
@@ -93,13 +87,13 @@ This hysteresis prevents rapid switching of the relay.
 
 ---
 
-## 🔄 8. System Working Summary
+##  8. System Working Summary
 
 The system continuously reads soil moisture values using ESP8266 ADC. If the value exceeds 750, the soil is considered dry and the relay activates the solenoid valve to supply water. If the value drops below 500, watering stops. The system can also be controlled manually using a push button or serial commands.
 
 ---
 
-## 🔁 9. Instructions for Next Intern (Reflash Guide)
+##  9. Instructions for Next Intern (Reflash Guide)
 
 ### Step 1: Install Arduino IDE
 - Install ESP8266 board package
@@ -123,7 +117,7 @@ Use Serial Monitor:
 
 ---
 
-## 🚀 10. Future Improvements
+##  10. Future Improvements
 
 - Replace resistive soil sensor with capacitive soil moisture sensor for better accuracy and durability  
 - Add WiFi-based mobile app control (Blynk / MQTT dashboard)  
@@ -134,11 +128,11 @@ Use Serial Monitor:
 
 ---
 
-## 📌 11. Project Summary
+##  11. Project Summary
 
 This project demonstrates an IoT-based smart irrigation system using ESP8266, capable of automatic and manual water control based on soil moisture levels. It is suitable for smart agriculture and embedded systems learning.
 
 ---
 
-## 🏷️ Version
+##  Version
 v1.0-capstone
