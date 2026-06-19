@@ -1,34 +1,34 @@
-#  Automated Grow Bench (ESP8266)
+# Automated Grow Bench
 
-##  Description
-This project is an automatic plant watering system using ESP8266. It reads soil moisture and controls a water valve using a relay. It also supports manual control using button and serial commands.
+An ESP32-based smart irrigation system that monitors soil moisture, temperature, and humidity and automatically controls water flow using a relay-driven solenoid valve.
 
----
+## Features
 
-##  Components
-- ESP8266 NodeMCU  
-- Soil Moisture Sensor  
-- Relay Module  
-- Solenoid Valve  
-- Push Button  
+* Automatic irrigation based on soil moisture
+* Temperature and humidity monitoring
+* AUTO and MANUAL operating modes
+* Real-time telemetry using Zelbytes IoT Lab
+* Live web dashboard with charts and status indicators
 
----
+## Technologies Used
 
-##  Working
-- Sensor reads soil moisture value
-- If soil is dry → valve turns ON
-- If soil is wet → valve turns OFF
-- Manual control is also available
+* ESP32
+* DHT11 Sensor
+* Soil Moisture Sensor
+* Zelbytes IoT Lab API
+* HTML, CSS, JavaScript
+* Chart.js
 
----
+## Dashboard
 
-##  Commands
-- STATUS → Shows moisture and system state  
-- AUTO → Automatic mode  
-- FORCE_ON → Turn valve ON  
-- FORCE_OFF → Turn valve OFF  
+The dashboard displays:
 
----
+* Temperature (°C)
+* Humidity (%)
+* Soil Moisture (%)
+* Pump Status
+* Operating Mode
+* Real-time graphs
 
-##  Version
-v1.0-capstone
+
+Additional implementation details, firmware configuration, and dashboard resources are included within this repository.
