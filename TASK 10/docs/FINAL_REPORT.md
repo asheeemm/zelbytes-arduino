@@ -1,138 +1,341 @@
-#  Automated Grow-Bench System  
-### ESP8266-Based Smart Irrigation System (Capstone Project)
+#  Automated Grow-Bench System
+
+## Task 10 – Technical Report
+
+### ESP32-Based IoT Smart Irrigation System
 
 ---
 
-##  1. Objective
+# 1. Project Overview
 
-The objective of this project is to design and implement an IoT-based automated irrigation system using ESP8266 NodeMCU. The system monitors soil moisture and controls water flow using a solenoid valve through a relay module. It supports both automatic and manual operation modes.
+The Automated Grow-Bench System is an IoT-enabled smart irrigation solution developed using ESP32. The system continuously monitors soil moisture levels and automatically controls irrigation through a relay-controlled solenoid valve. Sensor data is transmitted to the Zelbytes IoT Lab cloud platform and visualized through an external web dashboard featuring live monitoring and graphical analysis.
 
----
-
-## 🔩 2. Hardware Bill of Materials (BOM)
-
-| Component | Description | Estimated Cost (INR) |
-|-----------|-------------|----------------------|
-| ESP8266 NodeMCU | Main microcontroller for IoT control | ₹250 – ₹400 |
-| Soil Moisture Sensor | Measures soil water content (analog output) | ₹80 – ₹150 |
-| Relay Module (1-channel) | Switches solenoid valve ON/OFF | ₹60 – ₹120 |
-| Solenoid Valve | Controls water flow | ₹300 – ₹800 |
-| Push Button | Manual override control | ₹10 – ₹20 |
-| External 12V Supply | Powers solenoid valve | ₹200 – ₹500 |
-| Jumper Wires & Breadboard | Prototyping connections | ₹100 – ₹200 |
+This project demonstrates the integration of embedded systems, cloud communication, API-based telemetry, and web technologies for smart agriculture applications.
 
 ---
 
-##  3. Wiring Overview
+# 2. Objectives
 
-### ESP8266 Connections
-
-- Soil Sensor AO → A0  
-- Relay IN → D1  
-- Push Button → D2 (INPUT_PULLUP)  
-- VCC → 3.3V   
-- GND → Common Ground  
-
----
-
-### Relay to Solenoid Valve
-
-- COM → 12V Positive  
-- NO → Solenoid Positive  
-- Solenoid Negative → 12V Negative  
+* Monitor soil moisture levels in real time.
+* Automate irrigation using predefined moisture thresholds.
+* Upload sensor data to a cloud platform using APIs.
+* Display live sensor readings through an external dashboard.
+* Visualize historical data using graphs.
+* Provide both automatic and manual control modes.
+* Demonstrate a complete IoT monitoring workflow.
 
 ---
 
-##  5. Calibration Methodology
+# 3. Hardware Bill of Materials (BOM)
 
-The soil moisture sensor was calibrated by observing analog values under different conditions:
+| Component                | Purpose            | Estimated Cost (INR) |
+| ------------------------ | ------------------ | -------------------- |
+| ESP32 Development Board  | Main controller    | ₹300–₹600            |
+| Soil Moisture Sensor     | Soil monitoring    | ₹80–₹150             |
+| Relay Module (1-Channel) | Valve control      | ₹60–₹120             |
+| Solenoid Valve           | Water flow control | ₹300–₹800            |
+| Push Button              | Manual override    | ₹10–₹20              |
+| 12V Power Supply         | Valve power source | ₹200–₹500            |
+| Jumper Wires             | Interconnections   | ₹50–₹100             |
+| Breadboard               | Prototyping        | ₹50–₹100             |
 
-| Condition | Sensor Value |
-|----------|-------------|
-| Air | ~10–20 |
-| Dry Soil | ~600–900 |
-| Wet Soil | ~200–500 |
+### Estimated Total Cost
 
-Based on observations, the following thresholds were selected:
-
-- **Dry Threshold = 750** → activates watering  
-- **Wet Threshold = 500** → stops watering  
-
-This hysteresis prevents rapid switching of the relay.
-
----
-
-##  6. Test Results
-
-### Functional Tests Performed:
-- Sensor reading verification
-- Relay switching test
-- Solenoid ON/OFF control
-- Serial command execution
-- Button-based manual override
-
-### Observations:
-- System successfully switches between AUTO and MANUAL modes
-- Moisture readings are stable but dependent on sensor placement
-- Relay switching is responsive
+**₹1050 – ₹2390 (Approx.)**
 
 ---
 
-##  7. Known Limitations
+# 4. Cloud and Dashboard Components
 
-- Soil moisture sensor is not highly accurate and varies with soil type
-- Sensor corrosion may occur over long-term usage
-- ESP8266 ADC has limited resolution and noise
-- Requires external stable power supply for solenoid valve
-
----
-
-##  8. System Working Summary
-
-The system continuously reads soil moisture values using ESP8266 ADC. If the value exceeds 750, the soil is considered dry and the relay activates the solenoid valve to supply water. If the value drops below 500, watering stops. The system can also be controlled manually using a push button or serial commands.
+| Component                 | Purpose                         |
+| ------------------------- | ------------------------------- |
+| Zelbytes IoT Lab Platform | Cloud backend                   |
+| API Key                   | Device authentication           |
+| REST API Endpoints        | Data transmission and retrieval |
+| External HTML Dashboard   | Monitoring interface            |
+| Chart.js                  | Graph visualization             |
+| Web Browser               | Dashboard access                |
 
 ---
 
-##  9. Instructions for Next Intern (Reflash Guide)
+# 5. Wiring Connections
 
-### Step 1: Install Arduino IDE
-- Install ESP8266 board package
+## ESP32 Connections
 
-### Step 2: Select Board
-- NodeMCU 1.0 (ESP-12E Module)
-
-### Step 3: Select Port
-- Choose correct COM port
-
-### Step 4: Upload Code
-- Open `.ino` file
-- Click Upload
-
-### Step 5: Test System
-Use Serial Monitor:
-- `STATUS`
-- `AUTO`
-- `FORCE_ON`
-- `FORCE_OFF`
+| ESP32 Pin         | Connected To            |
+| ----------------- | ----------------------- |
+| Analog Input Pin  | Soil Moisture Sensor AO |
+| Relay Control Pin | Relay IN                |
+| Push Button Pin   | Push Button             |
+| 3.3V              | Sensor VCC              |
+| GND               | Common Ground           |
 
 ---
 
-##  10. Future Improvements
+## Relay Connections
 
-- Replace resistive soil sensor with capacitive soil moisture sensor for better accuracy and durability  
-- Add WiFi-based mobile app control (Blynk / MQTT dashboard)  
-- Implement cloud data logging for moisture history analysis  
-- Add battery backup system for uninterrupted operation  
-- Introduce multiple plant zone control using multiple relays  
-- Improve power management for long-term outdoor deployment  
-
----
-
-##  11. Project Summary
-
-This project demonstrates an IoT-based smart irrigation system using ESP8266, capable of automatic and manual water control based on soil moisture levels. It is suitable for smart agriculture and embedded systems learning.
+| Relay Terminal    | Connected To            |
+| ----------------- | ----------------------- |
+| COM               | +12V Supply             |
+| NO                | Solenoid Valve Positive |
+| Solenoid Negative | 12V Ground              |
 
 ---
 
-##  Version
-v1.0-capstone
+# 7. Firmware Logic
+
+The ESP32 continuously reads moisture values from the soil moisture sensor and processes the data according to predefined threshold values.
+
+The firmware supports:
+
+* Automatic irrigation mode
+* Manual override mode
+* Serial command interface
+* Cloud telemetry transmission
+* Dashboard integration
+
+### Supported Commands
+
+| Command   | Function              |
+| --------- | --------------------- |
+| STATUS    | Display system status |
+| AUTO      | Enable automatic mode |
+| ON        | Turn valve ON         |
+| OFF       | Turn valve OFF        |
+
+---
+
+# 8. Calibration Methodology
+
+The soil moisture sensor was tested under different soil conditions to determine suitable operating thresholds.
+
+### Selected Thresholds
+
+| Condition | Threshold |
+| --------- | --------- |
+| Dry Soil  | > 3500    |
+| Wet Soil  | < 2500    |
+
+### Irrigation Logic
+
+#### Dry Threshold = 3500
+
+If moisture value exceeds 3500:
+
+* Soil is considered dry
+* Relay activates
+* Solenoid valve opens
+* Irrigation starts
+
+#### Wet Threshold = 2500
+
+If moisture value drops below 2500:
+
+* Soil is considered sufficiently wet
+* Relay deactivates
+* Solenoid valve closes
+* Irrigation stops
+
+The gap between thresholds provides hysteresis and prevents rapid relay switching.
+
+---
+
+# 9. IoT Communication Architecture
+
+## System Architecture
+
+```text
+ESP32
+  ↓
+Zelbytes IoT API
+  ↓
+Cloud Storage
+  ↓
+External Dashboard
+  ↓
+Live Monitoring & Graphs
+```
+
+---
+
+## Data Flow
+
+1. Soil moisture sensor collects readings.
+2. ESP32 processes sensor data.
+3. Telemetry is uploaded to Zelbytes IoT Lab through authenticated API requests.
+4. Cloud platform stores telemetry data.
+5. Dashboard retrieves live and historical data using API endpoints.
+6. Graphs and status indicators are updated automatically.
+
+---
+
+# 10. Dashboard Implementation
+
+A separate external dashboard was developed for remote monitoring of system data.
+
+### Dashboard Features
+
+* Live sensor value display
+* Real-time status monitoring
+* Valve state indication
+* Historical data visualization
+* Graphical trend analysis
+* Automatic dashboard refresh
+
+### Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* Chart.js
+* Zelbytes IoT Lab API
+
+---
+
+# 11. API Integration
+
+The dashboard communicates with the Zelbytes IoT Lab platform using authenticated API requests.
+
+### API Functions
+
+* Upload telemetry from ESP32
+* Retrieve latest sensor values
+* Fetch historical records
+* Update dashboard widgets
+* Generate graphs
+
+### Data Displayed
+
+* Soil moisture level
+* Valve status
+* Operating mode
+* Historical sensor trends
+
+---
+
+# 12. Test Results
+
+## Hardware Tests
+
+| Test                | Result |
+| ------------------- | ------ |
+| Sensor Reading      | Passed |
+| Relay Switching     | Passed |
+| Valve Control       | Passed |
+| Push Button Control | Passed |
+| Serial Commands     | Passed |
+
+---
+
+## IoT Tests
+
+| Test                | Result |
+| ------------------- | ------ |
+| WiFi Connectivity   | Passed |
+| API Communication   | Passed |
+| Cloud Upload        | Passed |
+| Dashboard Retrieval | Passed |
+| Real-Time Updates   | Passed |
+
+---
+
+## Dashboard Tests
+
+| Test                      | Result |
+| ------------------------- | ------ |
+| Live Data Display         | Passed |
+| Historical Data Retrieval | Passed |
+| Graph Rendering           | Passed |
+| Status Indicators         | Passed |
+| Auto Refresh              | Passed |
+
+---
+
+# 14. Known Limitations
+
+* Sensor accuracy varies with soil composition.
+* Long-term sensor exposure may affect calibration.
+* Internet connection is required for remote monitoring.
+* Cloud service availability affects dashboard functionality.
+* Single-node implementation only.
+
+---
+
+# 15. Future Improvements
+
+* Capacitive soil moisture sensor integration.
+* Remote valve control from dashboard.
+* Mobile application support.
+* Notification alerts for dry soil conditions.
+* Multi-node grow-bench support.
+* Weather-based irrigation prediction.
+* Advanced analytics and reporting.
+
+---
+
+# 16. Instructions for Next Intern
+
+## Reflashing Firmware
+
+### Step 1
+
+Install Arduino IDE.
+
+### Step 2
+
+Install ESP32 Board Package.
+
+### Step 3
+
+Select:
+
+**Board:** ESP32 Dev Module
+
+### Step 4
+
+Connect ESP32 and select the correct COM port.
+
+### Step 5
+
+Open the firmware file:
+
+```text
+automated_growbench.ino
+```
+
+### Step 6
+
+Update WiFi credentials and API key if required.
+
+### Step 7
+
+Upload firmware to ESP32.
+
+### Step 8
+
+Open Serial Monitor at:
+
+```text
+115200 baud
+```
+
+### Step 9
+
+Verify operation using:
+
+* STATUS
+* AUTO
+* ON
+* OFF
+
+---
+
+# 17. Conclusion
+
+The Automated Grow-Bench System successfully demonstrates the integration of ESP32-based sensing, cloud communication, and web-based monitoring. The system automatically manages irrigation based on soil moisture conditions while simultaneously uploading telemetry to the Zelbytes IoT Lab platform. The external dashboard provides live monitoring and graphical visualization, making the solution suitable for smart agriculture and IoT learning applications.
+
+---
+
+## Version
+
+**v1.0-capstone**
