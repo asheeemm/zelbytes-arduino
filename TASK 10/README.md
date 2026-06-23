@@ -1,19 +1,25 @@
-#  Automated Grow Bench (ESP8266)
+#  Automated Grow-Bench System
 
-IoT-based smart irrigation system using ESP8266 NodeMCU that automates plant watering based on soil moisture levels.
+## Task 10 – Technical Documentation
 
----
+This repository contains the complete implementation and documentation of an ESP32-based IoT smart irrigation system. The project integrates soil moisture monitoring, automated irrigation control, cloud-based telemetry using the Zelbytes IoT Lab platform, and an external web dashboard for real-time monitoring and graphical visualization.
 
-##  Project Info
-This repository contains the firmware code, hardware setup, and full technical documentation for the Grow Bench system.
+### Key Features
 
----
+* Real-time soil moisture monitoring
+* Automated irrigation using relay and solenoid valve
+* Cloud telemetry through Zelbytes IoT APIs
+* External dashboard with live data and graphs
+* Automatic and manual operating modes
 
-##  Documentation
-This project implements an ESP8266-based smart irrigation system that automatically controls water flow using real-time soil moisture sensing. It supports both automatic and manual operation modes for efficient plant watering.
+### Documentation
 
+The complete technical report is available in:
 
----
+```text
+docs/FINAL_REPORT.md
+```
 
-##  Version
-v1.0-capstone
+### Version
+
+**v1.0-capstone**
